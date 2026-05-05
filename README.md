@@ -77,7 +77,7 @@ sa
 ### Password
 
 ```text
-
+escolha uma senha
 ```
 
 ---
