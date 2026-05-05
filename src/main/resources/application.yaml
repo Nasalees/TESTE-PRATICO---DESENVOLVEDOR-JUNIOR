@@ -6,7 +6,7 @@ spring:
     url: jdbc:h2:mem:testepraticoDB
     driver-class-name: org.h2.Driver
     username: sa
-    password: sales0301
+    password: 
 
   h2:
     console:
