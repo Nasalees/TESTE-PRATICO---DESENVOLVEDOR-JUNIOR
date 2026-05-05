@@ -11,11 +11,12 @@ import java.util.List;
 
 public interface AgendamentoRepository extends JpaRepository<Agendamento, String> {
     boolean existsByProfissionalAndData(Profissional profissional, LocalDateTime data);
+    boolean existsByPacienteAndData(Paciente paciente, LocalDateTime data);
 
 
 
     // List<Agendamento> findByPacienteNomeContainingIgnoreCaseOrProfissionalNomeContaininIgnoreCaseOrStatusContainingIgnoreCase(String nome);
     List<Agendamento> findByPacienteNomeCompletoContainingIgnoreCase(String paciente);
     List<Agendamento> findByProfissionalNomeContainingIgnoreCase(String profissional);
-    List<Agendamento> findByStatusIgnoreCase(Status status);
+    List<Agendamento> findByStatus(Status status);
 }

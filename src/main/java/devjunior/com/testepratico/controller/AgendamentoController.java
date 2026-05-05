@@ -24,10 +24,7 @@ public class AgendamentoController {
     }
 
     @PatchMapping("/cancelar/{id}")
-    public void cancelarAgendamento(
-            @RequestBody Agendamento agendamentoAtualizado,
-            @PathVariable String id){
-
+    public void cancelarAgendamento(@RequestBody Agendamento agendamentoAtualizado, @PathVariable String id){
         agendamentoService.cancelamento(id, agendamentoAtualizado);
     }
 
@@ -36,14 +33,14 @@ public class AgendamentoController {
 //        return agendamentoService.filtroGeral(geral);
 //    }
 
-    @GetMapping("/paciente/{paciente}")
-    public List<Agendamento> listaPaciente(@PathVariable String paciente){
-        return agendamentoService.filtroPaciente(paciente);
+    @GetMapping("/paciente/{pacienteNome}")
+    public List<Agendamento> listaPaciente(@PathVariable String pacienteNome){
+        return agendamentoService.filtroPaciente(pacienteNome);
     }
 
-    @GetMapping("/profissional/{profissional}")
-    public List<Agendamento> listaProfissional(@PathVariable String profissional){
-        return agendamentoService.filtroProfissional(profissional);
+    @GetMapping("/profissional/{profissionalNome}")
+    public List<Agendamento> listaProfissional(@PathVariable String profissionalNome){
+        return agendamentoService.filtroProfissional(profissionalNome);
     }
 
     @GetMapping("/status/{status}")

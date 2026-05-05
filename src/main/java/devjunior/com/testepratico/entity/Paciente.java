@@ -27,16 +27,12 @@ public class Paciente {
     @UuidGenerator
     private String id;
 
-    @NotBlank(message = "Nome completo é obrigatório")
     private String nomeCompleto;
 
-    @Past(message = "Data de nascimento deve ser no passado")
     private LocalDate dataNascimento;
 
-    //Fazer validação do CPF
     private String cpf;
 
-    @Email(message = "Email inválido")
     private String email;
 
 

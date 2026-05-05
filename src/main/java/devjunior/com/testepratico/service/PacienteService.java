@@ -11,13 +11,17 @@ public class PacienteService {
 
     private final PacienteRepository repository;
 
-    PacienteService(PacienteRepository repository){
+    public PacienteService(PacienteRepository repository){
         this.repository = repository;
     }
 
     public Paciente cadastraPaciente(Paciente paciente){
-        if(repository.existsByEmail(paciente.getEmail()) || repository.existsByCpf(paciente.getCpf())){
-            throw new RuntimeException("Email ou CPF já cadastrado");
+        if(repository.existsByEmail(paciente.getEmail())){
+            throw new RuntimeException("Email já cadastrado");
+        }
+
+        if(repository.existsByCpf(paciente.getCpf())){
+            throw new RuntimeException("CPF já cadastrado");
         }
            return repository.save(paciente);
     }
@@ -25,9 +29,10 @@ public class PacienteService {
     public List<Paciente> listaPacientes(){
         List<Paciente> pacientes = repository.findAll();
 
-        if (pacientes.isEmpty()){
-            throw new RuntimeException("Nenhum paciente cadastrado");
-        }
         return pacientes;
+    }
+
+    public boolean existePorId(String id) {
+        return repository.existsById(id);
     }
 }
